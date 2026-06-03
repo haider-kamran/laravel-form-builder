@@ -1,0 +1,13 @@
+/vendor/
+/node_modules/
+/public/
+/storage/
+/.idea
+/.vscode
+/.phpunit.cache
+/.phpunit.result.cache
+/phpunit.xml.bak
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
