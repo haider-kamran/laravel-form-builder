@@ -10,8 +10,8 @@
 > A dynamic, database-driven form builder for Laravel. Inspired by Typeform, Google Forms, and WPForms — built for developers.
 
 ---
-![Forms Listing](image.png)
-![Add From](image-1.png)
+![Forms Listing](image1.png)
+![Add From](image-12.png)
 ## Features
 
 | Feature | Status |
