@@ -1,6 +1,5 @@
 {
     "name": "hyderkamran/laravel-form-builder",
-    "version": "1.0.1",
     "description": "A production-ready, dynamic form builder package for Laravel — drag-and-drop admin UI, 21 field types, conditional logic, file uploads, repeater fields, submissions export, and API support.",
     "keywords": [
         "laravel",
