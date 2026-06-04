@@ -65,6 +65,7 @@
     const propPH       = el('prop-placeholder');
     const propHelp     = el('prop-help');
     const propRequired = el('prop-required');
+    const propWidth    = el('prop-width');
     const propMin      = el('prop-min');
     const propMax      = el('prop-max');
     const propRegex    = el('prop-regex');
@@ -113,6 +114,7 @@
                 name: f.name,
                 type: f.type,
                 required: !!f.required,
+                width: f.options?.width || '12',
                 placeholder: f.options?.placeholder || '',
                 help: f.options?.help || '',
                 min: f.validation_rules?.min || '',
@@ -199,7 +201,7 @@
         const fieldObj = {
             uid: uid(), id: null,
             label: label, name: name, type: type,
-            required: false,
+            required: false, width: '12',
             placeholder: '', help: '',
             min: '', max: '', regex: '', custom_rule: '',
             choices: '', range_min: 0, range_max: 100, range_step: 1,
@@ -285,6 +287,7 @@
         propPH.value       = fieldObj.placeholder;
         propHelp.value     = fieldObj.help;
         propRequired.checked = fieldObj.required;
+        propWidth.value    = fieldObj.width || '12';
 
         // Populate validation
         propMin.value    = fieldObj.min;
@@ -381,6 +384,7 @@
     propPH.addEventListener('input',       function () { withSelected(f => f.placeholder  = propPH.value); });
     propHelp.addEventListener('input',     function () { withSelected(f => f.help         = propHelp.value); });
     propRequired.addEventListener('change',function () { withSelected(f => { f.required = propRequired.checked; syncCardDisplay(f); }); });
+    propWidth.addEventListener('change',   function () { withSelected(f => f.width        = propWidth.value); });
     propMin.addEventListener('input',      function () { withSelected(f => f.min          = propMin.value); });
     propMax.addEventListener('input',      function () { withSelected(f => f.max          = propMax.value); });
     propRegex.addEventListener('input',    function () { withSelected(f => f.regex        = propRegex.value); });
@@ -524,6 +528,7 @@
             const options = {};
             if (f.placeholder) options.placeholder = f.placeholder;
             if (f.help)        options.help        = f.help;
+            if (f.width && f.width !== '12') options.width = f.width;
 
             if (CHOICE_TYPES.includes(f.type)) {
                 options.choices = choicesTextToObj(f.choices);

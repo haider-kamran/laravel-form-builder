@@ -281,6 +281,17 @@
                             <input class="form-check-input" type="checkbox" id="prop-required">
                         </div>
                     </div>
+                    <div class="settings-field">
+                        <label class="fb-label">Column Width</label>
+                        <select id="prop-width" class="fb-select">
+                            <option value="12">100% (Full Row)</option>
+                            <option value="9">75% (3/4 Row)</option>
+                            <option value="8">66% (2/3 Row)</option>
+                            <option value="6">50% (Half Row)</option>
+                            <option value="4">33% (1/3 Row)</option>
+                            <option value="3">25% (1/4 Row)</option>
+                        </select>
+                    </div>
                 </div>
 
                 {{-- VALIDATION --}}

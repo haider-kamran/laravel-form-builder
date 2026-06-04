@@ -19,7 +19,7 @@
             <p class="text-muted mb-3" style="font-size:.9rem">{{ $form->description }}</p>
         @endif
 
-        <div class="form-fields">
+        <div class="form-fields row">
             @foreach($form->fields as $field)
                 @php
                     $typeValue = $field->type instanceof \Hyderkamran\FormBuilder\Enums\FieldType
@@ -27,12 +27,13 @@
                         : (string) $field->type;
 
                     $logic = $field->options['logic'] ?? null;
+                    $colWidth = $field->options['width'] ?? '12';
                 @endphp
 
                 @if($typeValue === 'hidden')
                     @includeIf("form-builder::fields.hidden", ['field' => $field])
                 @else
-                    <div class="mb-3 field-wrapper"
+                    <div class="mb-3 field-wrapper col-md-{{ $colWidth }}"
                          data-field-name="{{ $field->name }}"
                          @if($logic) data-logic="{{ e(json_encode($logic)) }}" @endif>
 
