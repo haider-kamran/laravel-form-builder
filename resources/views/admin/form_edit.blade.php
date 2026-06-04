@@ -423,8 +423,8 @@
 @endsection
 
 @push('scripts')
-<script>
-    const EXISTING_FIELDS = @json($form->fields->map(fn($f) => [
+@php
+    $existingFields = $form->fields ? $form->fields->map(fn($f) => [
         'id'     => $f->id,
         'label'  => $f->label,
         'name'   => $f->name,
@@ -432,7 +432,10 @@
         'required' => $f->is_required,
         'options'  => $f->options ?? [],
         'validation_rules' => $f->validation_rules ?? [],
-    ]));
+    ]) : [];
+@endphp
+<script>
+    const EXISTING_FIELDS = @json($existingFields);
     const FORM_ID   = {{ $form->exists ? $form->id : 'null' }};
     const ADMIN_URLS = {
         testWebhook : '{{ $form->exists ? route('form-builder.admin.test-webhook', $form->id) : '' }}',
