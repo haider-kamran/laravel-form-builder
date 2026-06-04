@@ -68,6 +68,7 @@ class FormBuilderSeeder extends Seeder
                 'type' => 'file',
                 'is_required' => true,
                 'order' => 2,
+                'options' => null,
             ]
         ]);
 
